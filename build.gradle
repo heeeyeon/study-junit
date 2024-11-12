@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.dsa'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    jcenter()
+    google() // Google 저장소 추가
+}
+
+dependencies {
+    // JUnit 5 의존성 추가
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2' // JUnit 최신 버전
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+    testImplementation 'org.junit.platform:junit-platform-commons:1.8.2'
+    testImplementation 'org.opentest4j:opentest4j:1.2.0'
+    testImplementation 'org.assertj:assertj-core:3.24.2'  // AssertJ 의존성 추가
+}
+
+test {
+    useJUnitPlatform()  // JUnit 5를 사용하려면 필요
+}
+tasks.withType(Test) {
+    useJUnitPlatform()
+}
